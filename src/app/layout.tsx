@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Next.js Template",
-  description: "A minimal Next.js starter template",
+  title: "UniPortal — Your University Hub",
+  description:
+    "Access past papers, academic resources, repository, and more — all in one place.",
 };
 
 export default function RootLayout({

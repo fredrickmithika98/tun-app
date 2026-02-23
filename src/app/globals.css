@@ -1,1 +1,67 @@
 @import "tailwindcss";
+
+:root {
+  --uni-primary: #1a3a6b;
+  --uni-secondary: #c8a951;
+  --uni-accent: #e8f0fe;
+  --uni-dark: #0f2244;
+  --uni-light: #f8f9fc;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--uni-light);
+  color: #1a1a2e;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--uni-secondary);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(26, 58, 107, 0.15);
+}
+
+.gradient-hero {
+  background: linear-gradient(135deg, #1a3a6b 0%, #0f2244 60%, #1a3a6b 100%);
+}
+
+.gold-text {
+  color: var(--uni-secondary);
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
