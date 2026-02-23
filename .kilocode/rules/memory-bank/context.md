@@ -85,3 +85,4 @@ export async function GET() {
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
+| 2026-02-23 | Built complete University App: splash page, home dashboard, past papers, repository, courses, about pages + shared Navbar/Footer components |
