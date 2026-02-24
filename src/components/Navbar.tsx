@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 
 const navLinks = [
-  { href: "/home", label: "Home" },
+  { href: "/", label: "Home" },
   { href: "/past-papers", label: "Past Papers" },
   { href: "/repository", label: "Repository" },
   { href: "/courses", label: "Courses" },
@@ -21,7 +21,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/home" className="flex items-center gap-2 group">
+          <Link href="/" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-full bg-[#c8a951] flex items-center justify-center font-bold text-[#1a3a6b] text-lg group-hover:scale-105 transition-transform">
               T
             </div>
@@ -50,13 +50,13 @@ export default function Navbar() {
           {/* Right side */}
           <div className="hidden md:flex items-center gap-3">
             <Link
-              href="/home"
+              href="/"
               className="text-sm text-white/70 hover:text-white transition-colors"
             >
               Sign In
             </Link>
             <Link
-              href="/home"
+              href="/"
               className="bg-[#c8a951] text-[#1a3a6b] text-sm font-semibold px-4 py-2 rounded-lg hover:bg-[#d4b86a] transition-colors"
             >
               Get Started
@@ -101,14 +101,14 @@ export default function Navbar() {
           ))}
           <div className="pt-2 border-t border-white/10 flex gap-2">
             <Link
-              href="/home"
+              href="/"
               onClick={() => setMenuOpen(false)}
               className="flex-1 text-center text-sm text-white/70 hover:text-white py-2 transition-colors"
             >
               Sign In
             </Link>
             <Link
-              href="/home"
+              href="/"
               onClick={() => setMenuOpen(false)}
               className="flex-1 text-center bg-[#c8a951] text-[#1a3a6b] text-sm font-semibold px-4 py-2 rounded-lg hover:bg-[#d4b86a] transition-colors"
             >
