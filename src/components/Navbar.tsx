@@ -23,10 +23,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/home" className="flex items-center gap-2 group">
             <div className="w-9 h-9 rounded-full bg-[#c8a951] flex items-center justify-center font-bold text-[#1a3a6b] text-lg group-hover:scale-105 transition-transform">
-              U
+              T
             </div>
             <span className="text-white font-bold text-lg tracking-wide hidden sm:block">
-              Uni<span className="text-[#c8a951]">Portal</span>
+              Tharaka <span className="text-[#c8a951]">University</span>
             </span>
           </Link>
 

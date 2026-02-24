@@ -37,7 +37,7 @@ const features = [
     icon: "📱",
     title: "Mobile Friendly",
     description:
-      "Access UniPortal from any device — desktop, tablet, or mobile — with a fully responsive design.",
+      "Access Tharaka University App from any device — desktop, tablet, or mobile — with a fully responsive design.",
   },
 ];
 
@@ -57,14 +57,14 @@ export default function AboutPage() {
       <section className="gradient-hero text-white py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <span className="badge bg-[#c8a951]/20 text-[#c8a951] mb-4">
-            About UniPortal
+            About Tharaka University
           </span>
           <h1 className="text-4xl sm:text-5xl font-extrabold mb-4">
-            Empowering Students to{" "}
-            <span className="text-[#c8a951]">Excel</span>
+            Education for{" "}
+            <span className="text-[#c8a951]">Freedom</span>
           </h1>
           <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            UniPortal is your all-in-one academic hub, designed to make
+            Tharaka University is your all-in-one academic hub, designed to make
             university life easier by centralising resources, past papers, and
             course information.
           </p>
@@ -83,14 +83,14 @@ export default function AboutPage() {
             </h2>
             <p className="text-gray-600 leading-relaxed mb-4">
               We believe every student deserves equal access to quality academic
-              resources. UniPortal was built to break down barriers and ensure
+              resources. Tharaka University was built to break down barriers and ensure
               that no student is left behind due to lack of access to study
               materials.
             </p>
             <p className="text-gray-600 leading-relaxed mb-6">
               From first-year students navigating university life to postgraduate
-              researchers, UniPortal provides the tools and resources needed to
-              succeed at every level.
+              researchers, Tharaka University provides the tools and resources needed to
+              succeed at every level — Education for Freedom.
             </p>
             <Link
               href="/home"
@@ -162,7 +162,7 @@ export default function AboutPage() {
             Our Team
           </span>
           <h2 className="text-3xl font-extrabold text-[#1a3a6b]">
-            The People Behind UniPortal
+            The People Behind Tharaka University
           </h2>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
@@ -190,14 +190,14 @@ export default function AboutPage() {
             Ready to Get Started?
           </h2>
           <p className="text-white/70 mb-8">
-            Join thousands of students already using UniPortal to access
+            Join thousands of students already using Tharaka University App to access
             resources and ace their exams.
           </p>
           <Link
             href="/home"
             className="inline-block bg-[#c8a951] text-[#1a3a6b] font-bold text-lg px-8 py-4 rounded-xl hover:bg-[#d4b86a] transition-all shadow-lg"
           >
-            Enter UniPortal →
+            Enter Tharaka University →
           </Link>
         </div>
       </section>

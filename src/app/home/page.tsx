@@ -31,7 +31,7 @@ const quickLinks = [
     href: "/about",
     icon: "ℹ️",
     title: "About",
-    description: "Learn more about UniPortal and how to get the most out of it.",
+    description: "Learn more about Tharaka University and how to get the most out of it.",
     color: "bg-purple-50 border-purple-200",
     iconBg: "bg-purple-100",
   },
@@ -40,7 +40,7 @@ const quickLinks = [
 const announcements = [
   {
     date: "Feb 20, 2026",
-    title: "Semester 1 Exam Timetable Released",
+    title: "Tharaka University Semester 1 Exam Timetable Released",
     tag: "Exams",
     tagColor: "bg-red-100 text-red-700",
   },
@@ -52,7 +52,7 @@ const announcements = [
   },
   {
     date: "Feb 15, 2026",
-    title: "Library Hours Extended During Exam Period",
+    title: "Tharaka University Library Hours Extended During Exam Period",
     tag: "Notice",
     tagColor: "bg-green-100 text-green-700",
   },
@@ -75,14 +75,14 @@ export default function HomePage() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
               <span className="badge bg-[#c8a951]/20 text-[#c8a951] mb-3">
-                🎓 Welcome Back
+                🎓 Education for Freedom
               </span>
               <h1 className="text-3xl sm:text-4xl font-extrabold mb-3">
                 Good day, Student! 👋
               </h1>
               <p className="text-white/70 text-lg max-w-lg">
-                Explore your academic resources, download past papers, and stay
-                on top of your studies — all from one place.
+                Welcome to Tharaka University. Explore your academic resources,
+                download past papers, and stay on top of your studies — all from one place.
               </p>
             </div>
             <div className="flex gap-3 flex-wrap">

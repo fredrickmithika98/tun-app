@@ -12,23 +12,23 @@ export default function SplashPage() {
       <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl">
         {/* Logo mark */}
         <div className="w-24 h-24 rounded-full bg-[#c8a951] flex items-center justify-center mb-6 shadow-2xl">
-          <span className="text-[#1a3a6b] font-extrabold text-4xl">U</span>
+          <span className="text-[#1a3a6b] font-extrabold text-4xl">T</span>
         </div>
 
         {/* Badge */}
         <span className="badge bg-[#c8a951]/20 text-[#c8a951] mb-4">
-          🎓 Academic Excellence Platform
+          🎓 Education for Freedom
         </span>
 
         {/* Headline */}
         <h1 className="text-5xl sm:text-6xl font-extrabold text-white leading-tight mb-4">
           Welcome to{" "}
-          <span className="text-[#c8a951]">UniPortal</span>
+          <span className="text-[#c8a951]">Tharaka University</span>
         </h1>
 
         <p className="text-white/70 text-lg sm:text-xl leading-relaxed mb-10 max-w-xl">
           Your all-in-one hub for past papers, academic resources, course
-          materials, and everything you need to excel at university.
+          materials, and everything you need to excel at Tharaka University.
         </p>
 
         {/* CTA Buttons */}

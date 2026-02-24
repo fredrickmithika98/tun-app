@@ -9,15 +9,15 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="flex items-center gap-2 mb-3">
               <div className="w-8 h-8 rounded-full bg-[#c8a951] flex items-center justify-center font-bold text-[#1a3a6b]">
-                U
+                T
               </div>
               <span className="text-white font-bold text-lg">
-                Uni<span className="text-[#c8a951]">Portal</span>
+                Tharaka <span className="text-[#c8a951]">University</span>
               </span>
             </div>
             <p className="text-sm leading-relaxed">
-              Your all-in-one academic hub for resources, past papers, and
-              university life.
+              Education for Freedom — your all-in-one academic hub for
+              resources, past papers, and university life.
             </p>
           </div>
 
@@ -72,9 +72,9 @@ export default function Footer() {
               Contact
             </h4>
             <ul className="space-y-2 text-sm">
-              <li>📧 support@uniportal.edu</li>
-              <li>📞 +1 (800) 123-4567</li>
-              <li>📍 University Campus, Main Hall</li>
+              <li>📧 info@tharaka.ac.ke</li>
+              <li>📞 +254 700 000 000</li>
+              <li>📍 Tharaka University, Kenya</li>
             </ul>
             <Link
               href="/about"
@@ -86,7 +86,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-          <p>© {new Date().getFullYear()} UniPortal. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Tharaka University. All rights reserved.</p>
           <div className="flex gap-4">
             <span className="hover:text-white cursor-pointer transition-colors">
               Privacy Policy

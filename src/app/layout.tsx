@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "UniPortal — Your University Hub",
+  title: "Tharaka University App — Education for Freedom",
   description:
-    "Access past papers, academic resources, repository, and more — all in one place.",
+    "Tharaka University's official academic hub. Access past papers, resources, courses, and more — Education for Freedom.",
 };
 
 export default function RootLayout({
