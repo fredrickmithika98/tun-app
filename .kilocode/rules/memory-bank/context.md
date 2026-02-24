@@ -87,3 +87,4 @@ export async function GET() {
 | Initial | Template created with base setup |
 | 2026-02-23 | Built complete University App: splash page, home dashboard, past papers, repository, courses, about pages + shared Navbar/Footer components |
 | 2026-02-24 | Rebranded entire app from "UniPortal" to "Tharaka University App" — Education for Freedom (matching Adalo app at previewer.adalo.com/2a5c0179) |
+| 2026-02-24 | Made home dashboard the landing page at `/` — removed old splash page, `/home` now redirects to `/`, Navbar links updated |
