@@ -3,25 +3,46 @@
 import { useState, useMemo } from "react";
 import type { DSpaceItem } from "@/lib/dspace";
 import { DSPACE_BASE } from "@/lib/dspace";
+import type { PapersData } from "./page";
 
 interface Props {
-  papers: DSpaceItem[];
+  papers: PapersData;
 }
+
+type Tab = "all" | "undergrad" | "postgrad";
+
+const TABS: { key: Tab; label: string; icon: string }[] = [
+  { key: "all", label: "All Papers", icon: "📚" },
+  { key: "undergrad", label: "Undergraduate", icon: "🎓" },
+  { key: "postgrad", label: "Postgraduate", icon: "🏛️" },
+];
 
 export default function PastPapersClient({ papers }: Props) {
   const [search, setSearch] = useState("");
+  const [tab, setTab] = useState<Tab>("all");
   const [page, setPage] = useState(1);
   const PER_PAGE = 24;
 
+  const activeList = useMemo(() => {
+    switch (tab) {
+      case "undergrad":
+        return papers.undergrad;
+      case "postgrad":
+        return papers.postgrad;
+      default:
+        return papers.all;
+    }
+  }, [tab, papers]);
+
   const filtered = useMemo(() => {
-    if (!search.trim()) return papers;
+    if (!search.trim()) return activeList;
     const q = search.toLowerCase();
-    return papers.filter(
+    return activeList.filter(
       (p) =>
         p.title.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q)
     );
-  }, [papers, search]);
+  }, [activeList, search]);
 
   const totalPages = Math.ceil(filtered.length / PER_PAGE);
   const paginated = filtered.slice((page - 1) * PER_PAGE, page * PER_PAGE);
@@ -31,26 +52,64 @@ export default function PastPapersClient({ papers }: Props) {
     setPage(1);
   }
 
+  function handleTab(t: Tab) {
+    setTab(t);
+    setPage(1);
+    setSearch("");
+  }
+
+  const counts: Record<Tab, number> = {
+    all: papers.all.length,
+    undergrad: papers.undergrad.length,
+    postgrad: papers.postgrad.length,
+  };
+
   return (
     <>
-      {/* Filters */}
+      {/* Tabs + Search */}
       <section className="bg-white border-b border-gray-100 sticky top-16 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap gap-3 items-center">
-          <div className="ml-auto flex items-center gap-2 w-full sm:w-auto">
-            <input
-              type="search"
-              value={search}
-              onChange={(e) => handleSearch(e.target.value)}
-              placeholder="Search papers by title or subject..."
-              className="text-sm border border-gray-200 rounded-lg px-4 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-[#1a3a6b]/20 w-full sm:w-72"
-            />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-wrap gap-3 items-center justify-between">
+          {/* Tabs */}
+          <div className="flex gap-1">
+            {TABS.map((t) => (
+              <button
+                key={t.key}
+                onClick={() => handleTab(t.key)}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors ${
+                  tab === t.key
+                    ? "bg-[#1a3a6b] text-white"
+                    : "text-gray-500 hover:bg-gray-100"
+                }`}
+              >
+                <span>{t.icon}</span>
+                <span className="hidden sm:inline">{t.label}</span>
+                <span
+                  className={`text-xs px-1.5 py-0.5 rounded-full ${
+                    tab === t.key
+                      ? "bg-white/20 text-white"
+                      : "bg-gray-100 text-gray-500"
+                  }`}
+                >
+                  {counts[t.key]}
+                </span>
+              </button>
+            ))}
           </div>
+
+          {/* Search */}
+          <input
+            type="search"
+            value={search}
+            onChange={(e) => handleSearch(e.target.value)}
+            placeholder="Search papers by title or subject..."
+            className="text-sm border border-gray-200 rounded-lg px-4 py-1.5 bg-white focus:outline-none focus:ring-2 focus:ring-[#1a3a6b]/20 w-full sm:w-72"
+          />
         </div>
       </section>
 
       {/* Papers Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full flex-1">
-        {papers.length === 0 ? (
+        {papers.all.length === 0 ? (
           <div className="text-center py-20">
             <div className="text-5xl mb-4">📡</div>
             <h3 className="text-xl font-bold text-[#1a3a6b] mb-2">
@@ -67,6 +126,16 @@ export default function PastPapersClient({ papers }: Props) {
             >
               Visit Catalog Directly →
             </a>
+          </div>
+        ) : filtered.length === 0 ? (
+          <div className="text-center py-20">
+            <div className="text-5xl mb-4">🔍</div>
+            <h3 className="text-xl font-bold text-[#1a3a6b] mb-2">
+              No papers found
+            </h3>
+            <p className="text-gray-500">
+              Try a different search term or switch tabs.
+            </p>
           </div>
         ) : (
           <>

@@ -20,6 +20,12 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] Admin panel at /admin with catalog overview, upload instructions, live preview table
 - [x] API route at /api/papers for fetching/searching DSpace items
 - [x] DSpace utility library at src/lib/dspace.ts (Atom feed parser, search)
+- [x] Past Papers page now fetches from BOTH undergraduate (1/22) AND postgraduate (1/21) collections with tab filter
+- [x] Admin panel protected with username/password login at /admin/login
+- [x] Next.js middleware at src/middleware.ts redirects unauthenticated users to /admin/login
+- [x] Admin login API at /api/admin/login sets httpOnly session cookie (8h expiry)
+- [x] Admin logout API at /api/admin/logout clears session cookie
+- [x] Default credentials: username=admin, password=tharaka2024 (override via ADMIN_USERNAME/ADMIN_PASSWORD env vars)
 
 ## Current Structure
 

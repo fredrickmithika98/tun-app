@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { fetchDSpaceItems, DSPACE_BASE } from "@/lib/dspace";
 import AdminClient from "./AdminClient";
+import AdminLogout from "./AdminLogout";
 
 export const revalidate = 0; // Always fresh in admin
 
@@ -33,11 +34,14 @@ export default async function AdminPage() {
       {/* Header */}
       <section className="gradient-hero text-white py-12 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-3xl">⚙️</span>
-            <span className="badge bg-[#c8a951]/20 text-[#c8a951]">
-              Admin Panel
-            </span>
+          <div className="flex items-center justify-between gap-3 mb-2 flex-wrap">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl">⚙️</span>
+              <span className="badge bg-[#c8a951]/20 text-[#c8a951]">
+                Admin Panel
+              </span>
+            </div>
+            <AdminLogout />
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold mb-2">
             Content Management

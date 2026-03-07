@@ -6,19 +6,43 @@ import PastPapersClient from "./PastPapersClient";
 
 export const revalidate = 3600; // Revalidate every hour
 
-async function getPapers(): Promise<DSpaceItem[]> {
+export interface PapersData {
+  all: DSpaceItem[];
+  undergrad: DSpaceItem[];
+  postgrad: DSpaceItem[];
+}
+
+async function getAllPapers(): Promise<PapersData> {
   try {
-    // Fetch from the main Past Papers collection (handle 1/1)
-    const items = await fetchDSpaceItems("1/1");
-    return items;
+    const [undergradResult, postgradResult] = await Promise.allSettled([
+      fetchDSpaceItems("1/22"), // Undergraduate Past Papers
+      fetchDSpaceItems("1/21"), // Postgraduate Past Papers
+    ]);
+
+    const undergrad =
+      undergradResult.status === "fulfilled" ? undergradResult.value : [];
+    const postgrad =
+      postgradResult.status === "fulfilled" ? postgradResult.value : [];
+
+    // Merge and deduplicate by handle
+    const seen = new Set<string>();
+    const all: DSpaceItem[] = [];
+    for (const item of [...undergrad, ...postgrad]) {
+      if (!seen.has(item.handle)) {
+        seen.add(item.handle);
+        all.push(item);
+      }
+    }
+
+    return { all, undergrad, postgrad };
   } catch (error) {
     console.error("Failed to fetch papers:", error);
-    return [];
+    return { all: [], undergrad: [], postgrad: [] };
   }
 }
 
 export default async function PastPapersPage() {
-  const papers = await getPapers();
+  const papers = await getAllPapers();
 
   return (
     <div className="min-h-screen flex flex-col bg-[#f8f9fc]">
@@ -49,6 +73,17 @@ export default async function PastPapersPage() {
             </a>
             .
           </p>
+          <div className="flex gap-4 mt-4 text-sm text-white/60">
+            <span>
+              🎓 <strong className="text-white">{papers.undergrad.length}</strong> Undergraduate
+            </span>
+            <span>
+              🏛️ <strong className="text-white">{papers.postgrad.length}</strong> Postgraduate
+            </span>
+            <span>
+              📚 <strong className="text-white">{papers.all.length}</strong> Total
+            </span>
+          </div>
         </div>
       </section>
 
