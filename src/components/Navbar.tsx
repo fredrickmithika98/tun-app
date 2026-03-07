@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/repository", label: "Repository" },
   { href: "/courses", label: "Courses" },
   { href: "/about", label: "About" },
+  { href: "/admin", label: "⚙️ Admin" },
 ];
 
 export default function Navbar() {

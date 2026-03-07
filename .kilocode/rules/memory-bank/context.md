@@ -14,6 +14,12 @@ The template is a clean Next.js 16 starter with TypeScript and Tailwind CSS 4. I
 - [x] ESLint configuration
 - [x] Memory bank documentation
 - [x] Recipe system for common features
+- [x] DSpace catalog integration — live data from catalog.tharaka.ac.ke
+- [x] Past Papers page now fetches live papers via Atom feed (handle 1/1)
+- [x] Repository page now fetches live items from DSpace catalog
+- [x] Admin panel at /admin with catalog overview, upload instructions, live preview table
+- [x] API route at /api/papers for fetching/searching DSpace items
+- [x] DSpace utility library at src/lib/dspace.ts (Atom feed parser, search)
 
 ## Current Structure
 
